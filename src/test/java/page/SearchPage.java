@@ -12,16 +12,16 @@ public class SearchPage extends  BasePage{
         super(driver);
     }
 
-    private By searchnav= By.xpath("//*[@id=\"q\"]");
-    private  By searchlocator=By.xpath("//*[@id=\"H_s_v8\"]/button");
+    private By searchNav= By.xpath("//*[@name=\"q\"]");
+
+    private  By searchLocator=By.xpath("//*[@id=\"H_s_v8\"]/button");
     private  By  product=By.xpath("//*[@id=\"CPL\"]/li[1]/a/span/span[5]");
     private  By follow = By.xpath("//*[@id=\"pf_w_v8\"]/span");
 
 
-    public SearchPage search(){
-        //click(searchnav);
-        setText(searchnav,"iphone");
-        click(searchlocator);
+    public SearchPage search()  {
+        setText(searchNav,"iphone");
+        click(searchLocator);
         return this;
     }
 
@@ -43,7 +43,6 @@ public class SearchPage extends  BasePage{
 
 
     public SearchPage addProduct(){
-
         click(product);
         scrollToPage();
         scrollToElement(follow);

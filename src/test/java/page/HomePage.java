@@ -15,13 +15,13 @@ public class HomePage extends  BasePage{
     private By acceptCookiesButton= By.cssSelector("div.banner > div.banner__accept-button");
 
     private By logoAkakce = By.xpath("//*[@id=\"H_l_v8\"]");
-    private By emaillocator = By.xpath("//*[@id=\"life\"]");
+    private By emailLocator = By.xpath("//*[@id=\"life\"]");
 
-    private By passwordlocator = By.xpath("//*[@id=\"lifp\"]");
-    private By butonsubmit = By.xpath("//*[@id=\"lfb\"]");
-    private  By girisbutton=By.xpath("    //*[@id=\"H_rl_v8\"]/a[2]\n");
-    private  By account= By.xpath("//*[@id=\"HM_v8\"]/i/a");
-    private  By hesap= By.xpath("  //*[@id=\"H_a_v8\"]");
+    private By passwordLocator = By.xpath("//*[@id=\"lifp\"]");
+    private By butonLocator = By.xpath("//*[@id=\"lfb\"]");
+    private  By girisLocator=By.xpath("    //*[@id=\"H_rl_v8\"]/a[2]\n");
+    //private  By account= By.xpath("//*[@id=\"HM_v8\"]/i/a");
+    private  By account= By.xpath("  //*[@id=\"H_a_v8\"]");
 
     @Step("Go to Akakce Home Page")
     public  HomePage getAkakcePage(){
@@ -30,9 +30,8 @@ public class HomePage extends  BasePage{
     }
 
     @Step("Accepting cookies")
-    public  HomePage  acceptCookies() throws InterruptedException {
-        Thread.sleep(2000);
-        //click(acceptCookiesButton);
+    public  HomePage  acceptCookies() {
+        click(acceptCookiesButton);
         return  this;
     }
 
@@ -50,16 +49,15 @@ public class HomePage extends  BasePage{
 
     }
     public HomePage loginPage(){
-        click(girisbutton);
-        setText(emaillocator,"beyzaa0204@gmail.com");
-        setText(passwordlocator,"Beyza0600");
-        click(butonsubmit);
+        click(girisLocator);
+        setText(emailLocator,"test@yopmail.com");
+        setText(passwordLocator,"Test1234");
+        click(butonLocator);
         return this;
 
      }
      public  HomePage getOpenLoginPage(){
-         Assert.assertEquals(isElementDisplayed(hesap),true,"login page is not opened");
-
+         Assert.assertEquals(isElementDisplayed(account),true,"login page is not opened");
          return  this;
      }
 

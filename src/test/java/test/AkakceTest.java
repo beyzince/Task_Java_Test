@@ -6,11 +6,9 @@ import page.*;
 
 public class AkakceTest extends  BaseTest{
 
-
-
-      HomePage homePage;
-      SearchPage searchPage;
-
+    HomePage homePage;
+    SearchPage searchPage;
+    FollowList followList;
 
     @Test
     @Description(" Test Cases")
@@ -21,11 +19,15 @@ public class AkakceTest extends  BaseTest{
 
 
         homePage.getAkakcePage()
-                .acceptCookies().isAkakceMainPageOpened();
-        homePage.getOpenLoginPage();
-        homePage.loginPage();
-        searchPage.search().searchList();
+                //.acceptCookies()
+                .isAkakceMainPageOpened()
+                        .getAkakceTitle();
+        homePage.loginPage()
+                .getOpenLoginPage();
+        searchPage.search()
+                .searchList();
         searchPage.addProduct();
+        //followList.followList();
 
 
 
